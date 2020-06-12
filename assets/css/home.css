@@ -1,0 +1,24 @@
+#image-container {
+  width: 100%;
+  height: 20%;
+  border: 2px solid #ececec;
+  border-radius: 0;
+  padding: 5px 0px 5px 0px;
+  margin-top: 1%; }
+  #image-container img {
+    width: 100%;
+    height: 20em;
+    background-size: contain;
+    border-radius: 11px;
+    box-shadow: 5px 2px 3px 5px pink; }
+
+#diary-intro-content {
+  font-family: serif;
+  margin: 20px;
+  word-spacing: 5px;
+  font-size: 1.2em;
+  background: linear-gradient(270deg, aliceblue, lightyellow);
+  color: #5c317b; }
+  #diary-intro-content .bold-imp {
+    font-size: 1.2em;
+    font-weight: bolder; }

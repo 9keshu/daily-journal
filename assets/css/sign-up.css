@@ -1,0 +1,21 @@
+#sign-up-container {
+  background-color: #e2e2d6; }
+  #sign-up-container #sign-up-caption {
+    color: blueviolet;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5em; }
+  #sign-up-container #sign-up-form {
+    height: 60vh;
+    width: 70vw; }
+    #sign-up-container #sign-up-form input {
+      display: block;
+      width: 25%;
+      height: 1.5em;
+      padding: 10px;
+      margin: 5px 0px 5px 0px; }
+    #sign-up-container #sign-up-form #sign-up-button {
+      height: 3em;
+      width: 8em; }
+  #sign-up-container #form-container {
+    text-align: -webkit-center; }
