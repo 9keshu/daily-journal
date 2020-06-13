@@ -6,11 +6,19 @@
     vertical-align: top; }
   #profile-container #new-entry-container {
     display: inline-block;
-    width: 50%; }
+    width: 50%;
+    margin-top: 1em; }
+  #profile-container #new_post_form {
+    padding: 5px; }
+    #profile-container #new_post_form input[type="text"], #profile-container #new_post_form input[type="date"] {
+      padding: 5px;
+      border: 2px solid blue;
+      border-radius: 30px; }
   #profile-container #textarea {
     padding: 1em;
     font-size: 1em;
     border: 2px solid darkslateblue;
+    border-radius: 10px;
     box-shadow: 2px 2px 2px 2px darkcyan; }
   #profile-container #add-btn {
     padding: 8px;
@@ -18,7 +26,7 @@
     background: linear-gradient(30deg, #f7f0f0d1, #ffff08);
     position: relative;
     display: inline;
-    margin-left: 58vw;
+    margin-left: 53vw;
     margin-top: 5px;
     box-shadow: 2px 2px 2px 2px lightyellow;
     border-radius: 5px;

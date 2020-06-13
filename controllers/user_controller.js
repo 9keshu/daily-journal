@@ -1,4 +1,7 @@
 const User = require('../models/users');
+const Post = require('../models/post');
+
+
 
 module.exports.signUp = function(req,res){
     if(req.isAuthenticated()){
@@ -10,15 +13,18 @@ module.exports.signUp = function(req,res){
 }
 
 module.exports.profile = async function(req,res){
-    let user = await User.findOne(req.params.id);
+    let user = await User.findById(req.session.passport.user);
+    let posts = await Post.find({user:req.session.passport.user});
     try{
         res.render('profile',{
             title:'Daily Journal | Profile',
-            profile_user:user
+            profile_user:user,
+            posts:posts
         });
     }
     catch(err){
         console.log(`Error ${err}`);
+        return;
     }
     
 }
@@ -57,9 +63,9 @@ module.exports.create = async function(req,res){
     }
 }
 
-module.exports.createSession = function(req,res){
-    req.flash('success','Welcome!');
-    return res.redirect('/users/profile');
+module.exports.createSession = async function(req,res){
+    req.flash('success','Welcome!');  
+    return res.redirect(`/users/profile`);
 }
 
 module.exports.destroySession = function(req,res){

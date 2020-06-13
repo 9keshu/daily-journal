@@ -3,21 +3,23 @@
 
 <aside id="previous-entires">
     <ol>
-        <li>List Item 1</li>
-        <li>List Item 2</li>
-        <li>List Item 3</li>
-        <li>List Item 4</li>
-        <li>List Item 5</li>
+        <% for(post of posts) { %>
+        <li id="post-<%= post.id %>"> <p><%= post.title %> @ <%= post.place%> <%= post.date%></p> </li>
+        <% } %>
     </ol>
 </aside>
 
 <div id="new-entry-container">
-    <form action="/posts/create" method="POST">
-        <textarea name="content" id="textarea" cols="100" rows="30" placeholder="Dear Diary,"></textarea>
-        <input type="submit" value="Add" id="add-btn">
+    <form action="/posts/create" method="POST" id="new_post_form">
+        <input type="text" placeholder="Title" name="title" required>
+        <input type="text" name="place" placeholder="Place" required>
+        <input type="date" name="date" required>
+        <textarea name="content" id="textarea" cols="100" rows="30" placeholder="Dear Diary," required></textarea>
+        <input type="submit" value="Add your day!" id="add-btn">
     </form>
 </div>
 
 
 
 </div>
+<script src="/js/journal_post.js"></script>
