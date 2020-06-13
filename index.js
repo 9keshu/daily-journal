@@ -11,6 +11,8 @@ const LocalStrategy = require('./config/passport-local-strategy');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 
 //setting up the view engine
 app.set('view engine','ejs');
@@ -28,9 +30,8 @@ app.use(sassMiddleware({
 }));
 
 app.use(cookieParser());
-app.use(passport.initialize());
-app.use(passport.setAuthenticatedUser);
-app.use(passport.session());
+
+
 app.use(session({
     name:'dailydiary',
     secret:'jaisingaji',
@@ -47,6 +48,13 @@ app.use(session({
         console.log(err || 'connect mondo db set-up ok');
     }
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
+
+
+app.use(flash());
+app.use(customMware.setFlash);
 
 //setting up the link and script tags in head and bottom respectively.
 app.set('layout extractStyles',true);

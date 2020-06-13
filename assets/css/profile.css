@@ -1,0 +1,25 @@
+#profile-container {
+  background-color: chartreuse; }
+  #profile-container #previous-entires {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top; }
+  #profile-container #new-entry-container {
+    display: inline-block;
+    width: 50%; }
+  #profile-container #textarea {
+    padding: 1em;
+    font-size: 1em;
+    border: 2px solid darkslateblue;
+    box-shadow: 2px 2px 2px 2px darkcyan; }
+  #profile-container #add-btn {
+    padding: 8px;
+    color: blue;
+    background: linear-gradient(30deg, #f7f0f0d1, #ffff08);
+    position: relative;
+    display: inline;
+    margin-left: 58vw;
+    margin-top: 5px;
+    box-shadow: 2px 2px 2px 2px lightyellow;
+    border-radius: 5px;
+    cursor: pointer; }

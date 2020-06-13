@@ -9,13 +9,27 @@ module.exports.signUp = function(req,res){
     });
 }
 
-module.exports.signIn = function(req,res){
-    if(req.isAuthenticated()){
-        return res.redirect('/users/profile');
+module.exports.profile = async function(req,res){
+    let user = await User.findOne(req.params.id);
+    try{
+        res.render('profile',{
+            title:'Daily Journal | Profile',
+            profile_user:user
+        });
     }
-
-    return res.redirect('/');
+    catch(err){
+        console.log(`Error ${err}`);
+    }
+    
 }
+
+// module.exports.signIn = function(req,res){
+//     if(req.isAuthenticated()){
+//         return res.redirect('/users/profile');
+//     }
+
+//     return res.redirect('/');
+// }
 
 module.exports.create = async function(req,res){
     
@@ -29,7 +43,7 @@ module.exports.create = async function(req,res){
         if(!user){
             User.create(req.body,function(err,user){
                 if(err){console.log(`Error in creating user ${err}`);}
-                console.log('User Created!!');
+                req.flash('success','User Created Successfully!!!');
                 return res.redirect('/');
             });
         }
@@ -44,13 +58,13 @@ module.exports.create = async function(req,res){
 }
 
 module.exports.createSession = function(req,res){
-    console.log('Session Created');
-    return res.redirect('/');
+    req.flash('success','Welcome!');
+    return res.redirect('/users/profile');
 }
 
 module.exports.destroySession = function(req,res){
     req.logout();
-    console.log('Session Destroyed');
+    req.flash('error','Sign-Out Successfully!');
     return res.redirect('/');
 }
 

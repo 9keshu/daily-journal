@@ -1,13 +1,20 @@
 <link rel="stylesheet" href="/css/profile.css">
 <div id="profile-container">
-<aside id="previous-entires">
 
+<aside id="previous-entires">
+    <ol>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+    </ol>
 </aside>
 
 <div id="new-entry-container">
-    <form action="#" method="POST">
-        <textarea name="new_entry" id="" cols="30" rows="10" placeholder="Dear Diary,"></textarea>
-        <input type="submit" value="Add">
+    <form action="/posts/create" method="POST">
+        <textarea name="content" id="textarea" cols="100" rows="30" placeholder="Dear Diary,"></textarea>
+        <input type="submit" value="Add" id="add-btn">
     </form>
 </div>
 

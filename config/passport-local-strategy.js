@@ -10,9 +10,11 @@ async function(req,email,password,done){
     let user = await User.findOne({email:email});
     try{
         if(!user || user.password != password){
-            console.log('Invalid Username/Password');
+            req.flash('error','Invalid Username/Password');
             return done(null,false);
         }
+
+        
         return done(null,user);
     }
     catch(err){
@@ -30,7 +32,7 @@ passport.serializeUser(function(user,done){
 });
 
 passport.deserializeUser(function(id,done){
-    User.findOne(id,function(err,user){
+    User.findById(id,function(err,user){
         if(err){console.log(`Error in finding the user using passport ${err}`);return done(err);}
         return done(null,user);
     });
@@ -41,7 +43,7 @@ passport.checkAuthentication = function(req,res,next){
     if(req.isAuthenticated()){
         return next();
     }
-
+    req.flash('error','User not Authenticated!');
     return res.redirect('/');
 }
 

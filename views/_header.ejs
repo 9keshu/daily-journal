@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/css/header.css">
 <header id="head">
     <h1 id="heading">&#64;Daily Journal</h1>
+    <% if (!locals.user) {%>
     <form action="/users/create-session" method="POST" id="sign-in-form">
         <input type="email" placeholder="Your Email" name="email">
         <input type="password" name="password" placeholder="Your Password">
@@ -8,5 +9,9 @@
         
     </form>
     <a href="/users/sign-up" id="not-signed-up">Not Signed Up?</a>
-    
+    <% } else { %>
+        <a href="/users/destroy-session" id="sign-out">Sign-Out</a>
+        <p id="username"><%= user.firstname %></p>
+    <% } %> 
+
 </header>
