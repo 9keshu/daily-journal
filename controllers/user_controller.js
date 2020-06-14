@@ -19,7 +19,8 @@ module.exports.profile = async function(req,res){
         res.render('profile',{
             title:'Daily Journal | Profile',
             profile_user:user,
-            posts:posts
+            posts:posts,
+            gotPost:null
         });
     }
     catch(err){
@@ -28,6 +29,12 @@ module.exports.profile = async function(req,res){
     }
     
 }
+
+
+
+
+
+
 
 // module.exports.signIn = function(req,res){
 //     if(req.isAuthenticated()){

@@ -1,5 +1,5 @@
 #profile-container {
-  background-color: chartreuse; }
+  background: linear-gradient(270deg, #736e6014, #0000ff00); }
   #profile-container #previous-entires {
     display: inline-block;
     width: 30%;
@@ -12,22 +12,34 @@
     padding: 5px; }
     #profile-container #new_post_form input[type="text"], #profile-container #new_post_form input[type="date"] {
       padding: 5px;
-      border: 2px solid blue;
-      border-radius: 30px; }
+      border: 2px solid antiquewhite;
+      border-radius: 30px;
+      box-shadow: 2px 2px 2px black; }
   #profile-container #textarea {
     padding: 1em;
     font-size: 1em;
-    border: 2px solid darkslateblue;
+    border: 2px solid antiquewhite;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px darkcyan; }
+    box-shadow: 2px 2px 2px 2px #000000; }
   #profile-container #add-btn {
     padding: 8px;
-    color: blue;
-    background: linear-gradient(30deg, #f7f0f0d1, #ffff08);
+    color: black;
+    background: linear-gradient(30deg, #f7f0f0d1, #ffffff);
     position: relative;
     display: inline;
     margin-left: 53vw;
     margin-top: 5px;
-    box-shadow: 2px 2px 2px 2px lightyellow;
-    border-radius: 5px;
-    cursor: pointer; }
+    box-shadow: 2px 2px 2px black;
+    border-radius: 10px;
+    cursor: pointer;
+    border-color: antiquewhite; }
+  #profile-container #diary-display-container {
+    border: 2px solid ghostwhite;
+    margin-top: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    cursor: progress;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
+    overflow: hidden;
+    width: 85%; }
