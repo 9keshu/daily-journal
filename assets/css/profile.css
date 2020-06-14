@@ -43,3 +43,24 @@
     box-shadow: 2px 2px 2px black;
     overflow: hidden;
     width: 85%; }
+  #profile-container #post_delete_update {
+    padding: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+    #profile-container #post_delete_update a {
+      padding: 5px;
+      text-decoration: none;
+      color: indianred; }
+      #profile-container #post_delete_update a i {
+        padding: 5px;
+        position: absolute; }
+    #profile-container #post_delete_update #delete-btn {
+      position: absolute;
+      bottom: 1em;
+      right: 5em; }
+    #profile-container #post_delete_update #edit-btn {
+      position: absolute;
+      bottom: 1em;
+      left: 0em; }

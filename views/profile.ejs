@@ -4,31 +4,16 @@
 <aside id="previous-entires">
     <ol>
         <% for(post of posts) { %>
-        <li id="post-<%= post.id %>"> <div id="diary-display-container"><p><%= post.title %> @ <%= post.place%> <%= post.date %></p></div> <div> <a href="/posts/get-content/<%= post.id %>"><i class="fas fa-edit"></i></a> <a href="/posts/destroy/<%= post.id %>"><i class="fas fa-trash-alt"></i></a></div></li>
+            <%- include('_recent-post-list'); -%>
         <% } %>
     </ol>
 </aside>
 
 <div id="new-entry-container">
     <% if(!gotPost){%>
-    <form action="/posts/create" method="POST" id="new_post_form">
-        <input type="text" placeholder="Title" name="title" required >
-        <input type="text" name="place" placeholder="Place" required >
-        <input type="date" name="date" required>
-        <hr>
-        <textarea name="content" id="textarea" cols="100" rows="30" required>Dear Diary,</textarea>
-        <input type="submit" value="Add your day!" id="add-btn">
-    </form>
+        <%- include('_create-post-form'); -%>
     <% } else  {%>
-        <form action="/posts/update/<%= gotPostId %>" method="POST" id="update-form">
-            <input type="text" placeholder="Title" name="title" required value="<%= gotPost.title %>">
-            <input type="text" name="place" placeholder="Place" required value="<%= gotPost.place %>">
-            <input type="date" name="date" required value="<%= gotPost.date %>">
-            <hr>
-            <textarea name="content" id="textarea" cols="100" rows="30" required><%= gotPost.content %></textarea>
-            <input type="submit" value="Update your day!" id="add-btn">
-            <a href="/posts/start-fresh">Start a New Day!</a>
-        </form>
+        <%- include('_update-post-form'); -%>
     <% } %>
 </div>
 

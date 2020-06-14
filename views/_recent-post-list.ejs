@@ -1,0 +1,9 @@
+<li id="post-<%= post.id %>">
+    <div id="diary-display-container">
+        <p><%= post.title %> @ <%= post.place%> <%= post.date %></p>
+       </div>
+       <div id="post_delete_update">
+           <span id="edit-btn"><a href="/posts/get-content/<%= post.id %>"><i class="fas fa-edit"></i></a></span>
+           <span id="delete-btn"><a class="delete-post-button" href="/posts/destroy/<%= post.id %>"><i class="fas fa-trash-alt"></i></a></span>
+       </div>
+</li>

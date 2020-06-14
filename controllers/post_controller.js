@@ -55,7 +55,6 @@ module.exports.loadPost = async function(req,res){
     try{
         let gotPost = await Post.findById(req.params.id);
         let gotPostId = req.params.id;
-        console.log('gotPostId :: ' , gotPostId);
         let user = await User.findById(req.session.passport.user);
         let posts = await Post.find({user:req.session.passport.user});
         return res.render('profile',{
@@ -77,6 +76,18 @@ module.exports.update = async function(req,res){
     try{
         if(req.params.id){
             let post = await Post.findByIdAndUpdate(req.params.id,req.body);
+            console.log("post is :: ", post);
+            
+
+            if(req.xhr){
+                return res.status(200).json({
+                    data:{
+                        post:post
+                    },
+                    message:"Post Updated!"
+                });
+            }
+            
             req.flash('success','Post Updated!');
             return res.redirect('/posts/start-fresh');
 
