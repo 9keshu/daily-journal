@@ -1,6 +1,6 @@
 const User = require('../models/users');
 const Post = require('../models/post');
-
+const emoji = require('node-emoji');
 
 
 module.exports.signUp = function(req,res){
@@ -20,7 +20,8 @@ module.exports.profile = async function(req,res){
             title:'Daily Journal | Profile',
             profile_user:user,
             posts:posts,
-            gotPost:null
+            gotPost:null,
+            emoji:emoji
         });
     }
     catch(err){
@@ -36,13 +37,6 @@ module.exports.profile = async function(req,res){
 
 
 
-// module.exports.signIn = function(req,res){
-//     if(req.isAuthenticated()){
-//         return res.redirect('/users/profile');
-//     }
-
-//     return res.redirect('/');
-// }
 
 module.exports.create = async function(req,res){
     

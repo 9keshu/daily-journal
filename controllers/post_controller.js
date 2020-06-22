@@ -1,5 +1,8 @@
 const Post = require('../models/post');
 const User = require('../models/users');
+const emoji = require('node-emoji');
+const Sentiment = require('sentiment');
+const sentiment = new Sentiment();
 
 module.exports.create = async function(req,res){
 
@@ -62,7 +65,8 @@ module.exports.loadPost = async function(req,res){
             gotPost:gotPost,
             posts:posts,
             profile_user:user,
-            gotPostId:gotPostId
+            gotPostId:gotPostId,
+            emoji:emoji
         });
     }
     catch(err){
@@ -111,7 +115,8 @@ module.exports.startFresh = async function(req,res){
             title:'Daily Journal | Profile',
             profile_user:user,
             posts:posts,
-            gotPost:null
+            gotPost:null,
+            emoji:emoji
         });
     }
     catch(err){
@@ -119,4 +124,24 @@ module.exports.startFresh = async function(req,res){
         return;
     }
     
+}
+
+
+module.exports.calculateSentiment = function(req,res){
+    // let result = sentiment.analyze('Cats are stupid.');
+    // console.log('Printing from sentiment '); 
+    let textareadata = req.body.content;
+    console.log('emoji package :: ', emoji.get);
+    console.log('text area data is :: ',textareadata);
+    let result = sentiment.analyze(textareadata);
+    console.log('result is :: ',result);
+    if(req.xhr){
+        return res.status(200).json({
+            data:{
+                result:result,
+            },
+            emoji:emoji,
+            message:"Sentiment Analyzed!"
+        });
+    }
 }

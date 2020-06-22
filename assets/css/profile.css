@@ -64,3 +64,9 @@
       position: absolute;
       bottom: 1em;
       left: 0em; }
+  #profile-container #emoji-para {
+    font-size: xxx-large;
+    position: absolute;
+    left: 86vw;
+    top: 77vh;
+    color: #dc0505; }
